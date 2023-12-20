@@ -9,6 +9,7 @@ export default function Navbar(){
         <nav className="text-2xl flex justify-between py-6">
             <div className="[&>*]:mr-2">
             <Link href="/"><span className="text-teal-800 dark:text-teal-400" >Nurique</span>Blog</Link>
+            <Link href="/posts/"> posts </Link>
             </div>
             {as.getToken()=="" ? 
             <Link href="/login/">Login</Link>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown"
 
 async function getNote(noteId:string){
-    const res = await fetch(`${process.env.NEXT_PUBLIC_PB_URL}/api/collections/blogs/records/${noteId}`,{next:{revalidate:30}}) //using pb as a backend
+    const res = await fetch(`http://localhost:8080/api/v1/blogs/${noteId}`,{next:{revalidate:30}}) //using pb as a backend
     const data = await res.json();
     return data;
 }
@@ -18,7 +18,7 @@ export default async function NotePage({params}:any) {
                 <br />
 
                 <ReactMarkdown>
-                {note.content}
+                {note.text}
                 </ReactMarkdown>
                 <br />
                 <h4 className="text-sky-800 dark:text-sky-400">{new Date(note.created).toDateString()}</h4>

@@ -5,8 +5,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: alibou
-      POSTGRES_PASSWORD: alibou
+      POSTGRES_USER: spring
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: springtest
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres

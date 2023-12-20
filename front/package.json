@@ -1,5 +1,5 @@
 {
-  "name": "midterm-frontend",
+  "name": "blogapp",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,20 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "13.5.5",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-hook-form": "^7.47.0"
+    "@types/node": "20.4.9",
+    "@types/react": "18.2.20",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.14",
+    "dotenv": "^16.3.1",
+    "eslint": "8.46.0",
+    "eslint-config-next": "13.4.13",
+    "md-editor-rt": "^4.6.1",
+    "next": "13.4.13",
+    "postcss": "8.4.27",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.46.1",
+    "react-markdown": "^8.0.7",
+    "rehype-raw": "^7.0.0",
+    "slug": "^8.2.3",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10",
-    "eslint": "^8",
-    "eslint-config-next": "13.5.5",
-    "postcss": "^8",
-    "tailwindcss": "^3",
-    "typescript": "^5"
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/slug": "^5.0.4"
   }
 }

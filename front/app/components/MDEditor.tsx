@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { MdEditor } from 'md-editor-rt';
 import 'md-editor-rt/lib/style.css';
 import as from '../lib/auth.js'
-import slug from 'slug';
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation';
 
@@ -13,19 +12,20 @@ export default function MDedit() {
     const [text, setText] = useState('# Start your new blogpost here...');
     const router = useRouter();
 
-    const goToPostPage = (id:string) => {
-        router.push('/posts/'+id);
+    const goToPostPage = () => {
+        router.push('/posts');
         router.refresh()
     };
 
     const post = async (data: any) => {
-        fetch(`${process.env.NEXT_PUBLIC_PB_URL}/api/collections/blogs/records/`, {
+        fetch(`http://localhost:8080/api/v1/blogs`, {
             method: "POST",
             body: JSON.stringify({
                 title: data.title,
                 overview: data.overview,
-                content:text,
-                short_link:slug(data.title),
+                text:text,
+                //short_link:slug(data.title),
+                created:new Date().toISOString(),
                 name:as.getId(),
             }),
             headers: {
@@ -33,8 +33,8 @@ export default function MDedit() {
                 "Authorization": as.getToken(),
             }
         })
-            .then((response) => response.json())
-            .then((json) => { goToPostPage(json.id); });
+            .then((response) => goToPostPage()); //response.json())
+            //.then((json) => { goToPostPage(); });
     }
 
     return ( 
